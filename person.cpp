@@ -16,13 +16,8 @@ enum gender stringToGenderTypeConverter(string str) {
 }
 
 //initializing static members
-void Person::InitLastAssignedId() {
-    Person::last_assigned_id = 0;
-}
-
-void Person::InitNumberOfDatasets() {
-    Person::number_of_datasets = 0;
-}
+int Person::number_of_datasets = 0;
+int Person::last_assigned_id = 0;
 
 //constructor of class Person
 Person::Person() : unique_id(GetLastAssignedId() + 1) {
@@ -31,20 +26,37 @@ Person::Person() : unique_id(GetLastAssignedId() + 1) {
 
     cout << "Firstname: " << endl;
     cin >> firstname_init;
-    SetFirstname(unique_id_init, firstname_init);
+    InitFirstname(this, firstname_init);
     cout << "Lastname: " << endl;
     cin >> lastname_init;
-    SetLastname(unique_id_init, lastname_init);
+    InitLastname(this, lastname_init);
     cout << "Age: " << endl;
     cin >> age_init;
-    SetAge(unique_id_init, age_init);
+    InitAge(this, age_init);
     cout << "Gender: " << endl;
     cin >> gender_init;
-    SetGender(unique_id_init, gender_init);
+    InitGender(this, gender_init);
     IncreaseNumberOfDatasets();
 }
 
 //methods
+
+void InitFirstname(Person *PersonPointer, string firstname_input) {
+    PersonPointer->firstname = firstname_input;
+}
+
+void InitLastname(Person *PersonPointer, string lastname_input){
+    PersonPointer->lastname = lastname_input;
+}
+
+void InitAge(Person *PersonPointer, int age_input){
+    PersonPointer->age = age_input;
+}
+
+void InitGender(Person *PersonPointer, string gender_input){
+    PersonPointer->gender = stringToGenderTypeConverter(gender_input);
+}
+
 
 string Person::GetFirstname(const int unique_id) {
     return mapUniqueId[unique_id]->firstname;
@@ -77,13 +89,14 @@ enum gender Person::GetGender(const int unique_id) {
     return mapUniqueId[unique_id]->gender;
 }
 
+int Person::GetNumberOfDatasets() {
+    return Person::number_of_datasets;
+}
+
 void Person::SetGender(const int unique_id, string gender_input) {
     mapUniqueId[unique_id]->gender = stringToGenderTypeConverter(gender_input);
 }
 
-int Person::GetNumberOfDatasets() {
-    return Person::number_of_datasets;
-}
 
 void Person::IncreaseNumberOfDatasets() {
     Person::number_of_datasets++;

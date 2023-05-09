@@ -11,22 +11,21 @@ using namespace std;
 int main() {
 
     do {
-
         string mode;
         cout << "Choose mode:\n"
-                "For modi choices, enter \"help\"\n";
+                "For mod choices, enter \"help\"\n";
         cin >> mode;
 
         if (mode == "help") {
-            cout << "\"write\": Add a new person to database\n"
+            cout << "\"add\": Add a new person to database\n"
                     "\"read\": Prints all persons in database to terminal\n"
                     "\"analyse\": Prints youngest and oldest person to terminal\n"
                     "\"exit\": Exits program\n\n";
-        } else if (mode == "write") {
+        } else if (mode == "add") {
             auto *randy = new Person();
             mapUniqueId.insert({randy->unique_id, randy}); //map.insert(key, value)
             cout << "Person was added successfully!\n";
-         } else if (mode == "read") {
+        } else if (mode == "read") {
             //for (int i = 0; i < Person::GetNumberOfDatasets(); i++) {
 
             //}

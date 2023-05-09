@@ -11,7 +11,8 @@
 using namespace std;
 
 enum class mode {
-    write,
+    add,
+    search,
     read,
     analyse,
     exit,
@@ -28,43 +29,44 @@ gender stringToGenderTypeConverter(string str);
 
 class Person {
 private:
-    //attributes
     string firstname;
     string lastname;
     int age;
     gender gender;
-    static int last_assigned_id;
-    static int number_of_datasets;
 
 public:
+    static int last_assigned_id;
+    static int number_of_datasets;
     const int unique_id;
 
     //constructor
     Person();
 
     //methods
+    friend void InitFirstname(Person* PersonPointer, string firstname_input);
+    friend void InitLastname(Person* PersonPointer, string lastname_input);
+    friend void InitAge(Person* PersonPointer, int age_input);
+    friend void InitGender(Person* PersonPointer, string gender_input);
 
+    string GetFirstname(int unique_id);
+    void SetFirstname(int unique_id, string firstname_input);
 
-    string GetFirstname(const int unique_id);
-    void SetFirstname(const int unique_id, string firstname_input);
+    string GetLastname(int unique_id);
+    void SetLastname(int unique_id, string lastname_input);
 
-    string GetLastname(const int unique_id);
-    void SetLastname(const int unique_id, string lastname_input);
-
-    int GetAge(const int unique_id);
+    int GetAge(int unique_id);
     void SetAge(int unique_id, int age_input);
 
     enum gender GetGender(int unique_id);
     void SetGender(int unique_id, string gender_input);
 
-    void InitNumberOfDatasets();
-    void IncreaseNumberOfDatasets();
+    static void IncreaseNumberOfDatasets();
     static int GetNumberOfDatasets();
 
-    void InitLastAssignedId();
-    int GetLastAssignedId();
+    static int GetLastAssignedId();
 
     void PrintPerson(int unique_id);
 };
-static map<int, Person *> mapUniqueId;
+
+static map<int, Person *> mapUniqueId; //used in multiple files, want only one map in usage
 #endif //DATABASE_PERSON_H
