@@ -10,6 +10,8 @@ using namespace std;
 
 int main() {
     auto felix = Person();
+    Person::mapUniqueId[1] = &felix;
+
     ///die map muss noch gefüllt werden wird sie momentan nicht
     do {
         string mode;
@@ -24,7 +26,7 @@ int main() {
                     "\"exit\": Exits program\n\n";
         } else if (mode == "add") {
             auto *randy = new Person();
-            mapUniqueId.insert({randy->unique_id, randy}); //map.insert(key, value)
+           // mapUniqueId.insert({randy->unique_id, randy}); //map.insert(key, value)
             cout << "Person was added successfully!\n";
         } else if (mode == "read") {
             //for (int i = 0; i < Person::GetNumberOfDatasets(); i++) {

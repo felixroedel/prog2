@@ -4,6 +4,7 @@
 
 #include "person.h"
 
+
 using namespace std;
 
 enum gender stringToGenderTypeConverter(string str) {
@@ -18,6 +19,7 @@ enum gender stringToGenderTypeConverter(string str) {
 //initializing static members
 int Person::number_of_datasets = 0;
 int Person::last_assigned_id = 0;
+map<int, Person *> Person::mapUniqueId;
 
 //constructor of class Person
 Person::Person() : unique_id(GetLastAssignedId() + 1) {
@@ -58,7 +60,7 @@ void InitGender(Person *PersonPointer, string gender_input) {
 }
 
 string Person::GetFirstname(const int unique_id) {
-    if(mapUniqueId[unique_id] == nullptr)
+    if (mapUniqueId[unique_id] == nullptr)
         return "allahu akbar";
     else
         return mapUniqueId[unique_id]->firstname;
