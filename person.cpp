@@ -45,21 +45,23 @@ void InitFirstname(Person *PersonPointer, string firstname_input) {
     PersonPointer->firstname = firstname_input;
 }
 
-void InitLastname(Person *PersonPointer, string lastname_input){
+void InitLastname(Person *PersonPointer, string lastname_input) {
     PersonPointer->lastname = lastname_input;
 }
 
-void InitAge(Person *PersonPointer, int age_input){
+void InitAge(Person *PersonPointer, int age_input) {
     PersonPointer->age = age_input;
 }
 
-void InitGender(Person *PersonPointer, string gender_input){
+void InitGender(Person *PersonPointer, string gender_input) {
     PersonPointer->gender = stringToGenderTypeConverter(gender_input);
 }
 
-
 string Person::GetFirstname(const int unique_id) {
-    return mapUniqueId[unique_id]->firstname;
+    if(mapUniqueId[unique_id] == nullptr)
+        return "allahu akbar";
+    else
+        return mapUniqueId[unique_id]->firstname;
 }
 
 void Person::SetFirstname(const int unique_id, string firstname_input) {
@@ -112,4 +114,3 @@ void Person::PrintPerson(const int unique_id) {
     cout << "Age: " << GetAge(unique_id) << "/n";
     //cout << "Gender: " << GetGender(unique_id) << "/n";
 }
-

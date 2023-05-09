@@ -9,7 +9,8 @@
 using namespace std;
 
 int main() {
-
+    auto felix = Person();
+    ///die map muss noch gefüllt werden wird sie momentan nicht
     do {
         string mode;
         cout << "Choose mode:\n"
@@ -33,6 +34,12 @@ int main() {
 
         } else if (mode == "exit")
             break;
+        else if(mode == "search") {
+            cout << "Search by ID. Enter a ID: " << endl;
+            int id_input;
+            cin >> id_input;
+            Person::PrintPerson(id_input);
+        }
         else {
             cout << "Not a valid mode, try again\n";
         }
