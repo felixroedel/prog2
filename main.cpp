@@ -37,6 +37,10 @@ int main() {
             cout << "Search by ID. Enter a ID: " << endl;
             int id_input;
             cin >> id_input;
+            if(Person::mapUniqueId[id_input] == nullptr) {
+                cout << "No User found with ID " << id_input << endl;
+                continue;
+            }
             Person::PrintPerson(id_input);
         } else {
             cout << "Not a valid mode, try again\n";

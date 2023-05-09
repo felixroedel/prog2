@@ -61,9 +61,6 @@ void InitGender(Person *PersonPointer, string gender_input) {
 }
 
 string Person::GetFirstname(int unique_id) {
-    if (mapUniqueId[unique_id] == nullptr)
-        return "allahu akbar";
-    else
         return mapUniqueId[unique_id]->firstname;
 }
 
