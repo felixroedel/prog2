@@ -29,7 +29,6 @@ gender stringToGenderTypeConverter(string str);
 
 class Person {
 private:
-    string firstname;
     string lastname;
     int age;
     gender gender;
@@ -38,7 +37,7 @@ private:
 
 public:
     const int unique_id;
-
+    static map<int, Person *> mapUniqueId;
     //constructor
     Person();
 
@@ -66,7 +65,10 @@ public:
     static int GetLastAssignedId();
 
     static void PrintPerson(int unique_id);
+
+    string firstname;
 };
 
-static map<int, Person *> mapUniqueId; //used in multiple files, want only one map in usage
+
+ //used in multiple files, want only one map in usage
 #endif //DATABASE_PERSON_H
