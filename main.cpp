@@ -9,9 +9,6 @@
 using namespace std;
 
 int main() {
-    auto felix = Person();
-    Person::mapUniqueId[1] = &felix;
-
     ///die map muss noch gefüllt werden wird sie momentan nicht
     do {
         string mode;
@@ -26,8 +23,8 @@ int main() {
                     "\"exit\": Exits program\n\n";
         } else if (mode == "add") {
             auto *randy = new Person();
-           // mapUniqueId.insert({randy->unique_id, randy}); //map.insert(key, value)
-            cout << "Person was added successfully!\n";
+            Person::mapUniqueId[randy->unique_id] = randy;
+            cout << "Person was added successfully with ID " << randy->unique_id << "!" << endl;
         } else if (mode == "read") {
             //for (int i = 0; i < Person::GetNumberOfDatasets(); i++) {
 
@@ -36,13 +33,12 @@ int main() {
 
         } else if (mode == "exit")
             break;
-        else if(mode == "search") {
+        else if (mode == "search") {
             cout << "Search by ID. Enter a ID: " << endl;
             int id_input;
             cin >> id_input;
             Person::PrintPerson(id_input);
-        }
-        else {
+        } else {
             cout << "Not a valid mode, try again\n";
         }
     } while (true);

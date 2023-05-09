@@ -39,6 +39,7 @@ Person::Person() : unique_id(GetLastAssignedId() + 1) {
     cin >> gender_init;
     InitGender(this, gender_init);
     IncreaseNumberOfDatasets();
+    IncreaseLastAssignedId();
 }
 
 //methods
@@ -59,7 +60,7 @@ void InitGender(Person *PersonPointer, string gender_input) {
     PersonPointer->gender = stringToGenderTypeConverter(gender_input);
 }
 
-string Person::GetFirstname(const int unique_id) {
+string Person::GetFirstname(int unique_id) {
     if (mapUniqueId[unique_id] == nullptr)
         return "allahu akbar";
     else
@@ -101,6 +102,9 @@ void Person::SetGender(const int unique_id, string gender_input) {
     mapUniqueId[unique_id]->gender = stringToGenderTypeConverter(gender_input);
 }
 
+void Person::IncreaseLastAssignedId(){
+    Person::last_assigned_id++;
+}
 
 void Person::IncreaseNumberOfDatasets() {
     Person::number_of_datasets++;
@@ -111,8 +115,8 @@ int Person::GetLastAssignedId() {
 }
 
 void Person::PrintPerson(const int unique_id) {
-    cout << "Firstname: " << GetFirstname(unique_id) << "/n";
-    cout << "Lastname: " << GetLastname(unique_id) << "/n";
-    cout << "Age: " << GetAge(unique_id) << "/n";
+    cout << "Firstname: " << GetFirstname(unique_id) << endl;
+    cout << "Lastname: " << GetLastname(unique_id) << endl;
+    cout << "Age: " << GetAge(unique_id) << endl;
     //cout << "Gender: " << GetGender(unique_id) << "/n";
 }

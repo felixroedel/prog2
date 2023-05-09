@@ -36,7 +36,7 @@ private:
     static int number_of_datasets;
 
 public:
-    const int unique_id;
+    int unique_id;
     static map<int, Person *> mapUniqueId;
     //constructor
     Person();
@@ -62,6 +62,8 @@ public:
     static void IncreaseNumberOfDatasets();
     static int GetNumberOfDatasets();
 
+
+    static void IncreaseLastAssignedId();
     static int GetLastAssignedId();
 
     static void PrintPerson(int unique_id);
