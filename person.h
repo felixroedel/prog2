@@ -41,25 +41,25 @@ public:
     Person();
 
     //methods
-    string GetFirstname(Person *unique_id);
+    string GetFirstname(const int unique_id);
 
-    void SetFirstname(Person *unique_id, string firstname_input);
+    void SetFirstname(const int unique_id, string firstname_input);
 
-    string GetLastname(Person *unique_id);
+    string GetLastname(const int unique_id);
 
-    void SetLastname(Person *unique_id, string lastname_input);
+    void SetLastname(const int unique_id, string lastname_input);
 
-    int GetAge(Person *unique_id);
+    int GetAge(const int unique_id);
 
-    void SetAge(Person *unique_id, int age_input);
+    void SetAge(int unique_id, int age_input);
 
-    enum gender GetGender(Person *unique_id);
+    enum gender GetGender(int unique_id);
 
-    void SetGender(Person *unique_id, string gender_input);
+    void SetGender(int unique_id, string gender_input);
 
-    int GetNumber_of_datasets(Person *unique_id);
+    int GetNumber_of_datasets(int unique_id);
 
-    void PrintPerson(Person *unique_id);
+    void PrintPerson(int unique_id);
 };
 
 #endif //DATABASE_PERSON_H

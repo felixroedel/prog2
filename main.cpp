@@ -1,12 +1,16 @@
+//
+// Created by felix.roedel on 25.04.2023.
+//
+
 #include <iostream>
 #include <map>
 #include "person.h"
 
+map<int, Person*> mapUniqueId;
 
 using namespace std;
 
 int main() {
-    map<int, Person*> mapUniqueId;
 
     do {
 
