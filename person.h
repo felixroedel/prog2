@@ -6,6 +6,7 @@
 #define DATABASE_PERSON_H
 
 #include <iostream>
+#include <map>
 
 using namespace std;
 
@@ -32,34 +33,38 @@ private:
     string lastname;
     int age;
     gender gender;
+    static int last_assigned_id;
     static int number_of_datasets;
 
 public:
-    int unique_id;
+    const int unique_id;
 
     //constructor
     Person();
 
     //methods
-    string GetFirstname(const int unique_id);
 
+
+    string GetFirstname(const int unique_id);
     void SetFirstname(const int unique_id, string firstname_input);
 
     string GetLastname(const int unique_id);
-
     void SetLastname(const int unique_id, string lastname_input);
 
     int GetAge(const int unique_id);
-
     void SetAge(int unique_id, int age_input);
 
     enum gender GetGender(int unique_id);
-
     void SetGender(int unique_id, string gender_input);
 
-    int GetNumber_of_datasets(int unique_id);
+    void InitNumberOfDatasets();
+    void IncreaseNumberOfDatasets();
+    static int GetNumberOfDatasets();
+
+    void InitLastAssignedId();
+    int GetLastAssignedId();
 
     void PrintPerson(int unique_id);
 };
-
+static map<int, Person *> mapUniqueId;
 #endif //DATABASE_PERSON_H

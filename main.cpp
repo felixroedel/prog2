@@ -6,8 +6,6 @@
 #include <map>
 #include "person.h"
 
-map<int, Person*> mapUniqueId;
-
 using namespace std;
 
 int main() {
@@ -23,15 +21,15 @@ int main() {
             cout << "\"write\": Add a new person to database\n"
                     "\"read\": Prints all persons in database to terminal\n"
                     "\"analyse\": Prints youngest and oldest person to terminal\n"
-                    "\"exit\": Exits programm\n\n";
+                    "\"exit\": Exits program\n\n";
         } else if (mode == "write") {
-            Person *randy = new Person();
-            mapUniqueId.insert({randy->unique_id, randy});
+            auto *randy = new Person();
+            mapUniqueId.insert({randy->unique_id, randy}); //map.insert(key, value)
             cout << "Person was added successfully!\n";
-        } else if (mode == "read") {
-            for (int i = 0; i < Person::GetNumber_of_datasets(); i++) {
+         } else if (mode == "read") {
+            //for (int i = 0; i < Person::GetNumberOfDatasets(); i++) {
 
-            }
+            //}
         } else if (mode == "analyse") {
 
         } else if (mode == "exit")
