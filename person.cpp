@@ -62,7 +62,14 @@ void InitLastname(Person *PersonPointer, string lastname_input) {
 }
 
 void InitAge(Person *PersonPointer, int age_input) {
-    PersonPointer->age = age_input;
+    if (age_input > 0)
+        PersonPointer->age = age_input;
+    else{
+        int age_input_try_again = 0;
+        cout << "Not a valid age, try again: " << endl;
+        cin >> age_input_try_again;
+        InitAge(PersonPointer, age_input_try_again);  //not useful, spams stack if not used apropriately
+    }
 }
 
 void InitGender(Person *PersonPointer, string gender_input) {

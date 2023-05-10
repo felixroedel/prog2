@@ -16,11 +16,12 @@ void Mode::Help() {
             "\"exit\": Exits program\n";
 }
 
-void Mode::Add(){
+void Mode::Add() {
     auto *randy = new Person();
     Person::mapUniqueId[randy->unique_id] = randy;
     cout << "Person was added successfully with ID " << randy->unique_id << "!" << endl;
 }
+
 
 void Mode::Exit() {
     cout << "Exit Program ..." << endl;
@@ -43,7 +44,7 @@ void Mode::Info() {
         if (Person::mapUniqueId[iter] == nullptr) {
             cout << "No Person found with ID " << iter << "!" << endl;
             continue;
-        } else{
+        } else {
             Person::PrintPerson(iter);
         }
     }
