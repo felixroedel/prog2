@@ -126,4 +126,5 @@ void Person::PrintPerson(const int unique_id) {
     cout << "Age: " << GetAge(unique_id) << endl;
     cout << "Gender: " << GenderToStringTypeConverter(GetGender(unique_id)) << endl;
     cout << "Unique ID: " << unique_id << endl;
+    cout << endl;
 }

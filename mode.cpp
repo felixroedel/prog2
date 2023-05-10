@@ -37,3 +37,14 @@ void Mode::Search() {
         Person::PrintPerson(id_input);
     }
 }
+
+void Mode::Info() {
+    for (int iter = 1; iter < Person::GetNumberOfDatasets() + 1; iter++) {
+        if (Person::mapUniqueId[iter] == nullptr) {
+            cout << "No Person found with ID " << iter << "!" << endl;
+            continue;
+        } else{
+            Person::PrintPerson(iter);
+        }
+    }
+}

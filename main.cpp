@@ -21,9 +21,7 @@ int main() {
         } else if (mode == "add") {
             Mode::Add();
         } else if (mode == "info") {
-            //for (int i = 0; i < Person::GetNumberOfDatasets(); i++) {
-
-            //}
+            Mode::Info();
         } else if (mode == "analyse") {
 
         } else if (mode == "exit"){
