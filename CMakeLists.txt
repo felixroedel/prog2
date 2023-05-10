@@ -3,4 +3,4 @@ project(database)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(database main.cpp person.cpp person.h)
+add_executable(database main.cpp person.cpp person.h mode.cpp mode.h)
