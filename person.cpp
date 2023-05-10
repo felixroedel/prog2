@@ -16,6 +16,15 @@ enum gender stringToGenderTypeConverter(string str) {
         return gender::undefined;
 }
 
+string GenderToStringTypeConverter(enum gender gen){
+    if(gen == gender::male)
+        return "male";
+    if(gen == gender::female)
+        return "female";
+    else
+        return "undefined";
+}
+
 //initializing static members
 int Person::number_of_datasets = 0;
 int Person::last_assigned_id = 0;
@@ -115,5 +124,6 @@ void Person::PrintPerson(const int unique_id) {
     cout << "Firstname: " << GetFirstname(unique_id) << endl;
     cout << "Lastname: " << GetLastname(unique_id) << endl;
     cout << "Age: " << GetAge(unique_id) << endl;
-    //cout << "Gender: " << GetGender(unique_id) << "/n";
+    cout << "Gender: " << GenderToStringTypeConverter(GetGender(unique_id)) << endl;
+    cout << "Unique ID: " << unique_id << endl;
 }

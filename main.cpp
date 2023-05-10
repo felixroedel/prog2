@@ -5,6 +5,7 @@
 #include <iostream>
 #include <map>
 #include "person.h"
+#include "mode.h"
 
 using namespace std;
 
@@ -16,33 +17,23 @@ int main() {
         cin >> mode;
 
         if (mode == "help") {
-            cout << "\"add\": Add a new person to database\n"
-                    "\"read\": Prints all persons in database to terminal\n"
-                    "\"search\": Search for specific person by unique ID\n"h
-                    "\"analyse\": Prints youngest and oldest person to terminal\n"
-                    "\"exit\": Exits program\n\n";
+            Mode::Help();
         } else if (mode == "add") {
-            auto *randy = new Person();
-            Person::mapUniqueId[randy->unique_id] = randy;
-            cout << "Person was added successfully with ID " << randy->unique_id << "!" << endl;
-        } else if (mode == "read") {
+            Mode::Add();
+        } else if (mode == "info") {
             //for (int i = 0; i < Person::GetNumberOfDatasets(); i++) {
 
             //}
         } else if (mode == "analyse") {
 
-        } else if (mode == "exit")
+        } else if (mode == "exit"){
+            Mode::Exit();
             break;
+        }
         else if (mode == "search") {
-            cout << "Search by ID. Enter a ID: " << endl;
-            int id_input;
-            cin >> id_input;
-            if(Person::mapUniqueId[id_input] == nullptr) {
-                cout << "No User found with ID " << id_input << endl;
-                continue;
-            }
-            Person::PrintPerson(id_input);
-        } else {
+            Mode::Search();
+        }
+        else {
             cout << "Not a valid mode, try again\n";
         }
     } while (true);

@@ -10,14 +10,15 @@
 
 using namespace std;
 
-enum class mode {
+enum class EnumMode {
     add,
     search,
-    read,
+    info,
     analyse,
     exit,
     help
 };
+
 
 enum class gender {
     male,
