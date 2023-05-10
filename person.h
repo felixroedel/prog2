@@ -29,6 +29,7 @@ gender stringToGenderTypeConverter(string str);
 
 class Person {
 private:
+    string firstname;
     string lastname;
     int age;
     gender gender;
@@ -67,10 +68,6 @@ public:
     static int GetLastAssignedId();
 
     static void PrintPerson(int unique_id);
-
-    string firstname;
 };
 
-
- //used in multiple files, want only one map in usage
 #endif //DATABASE_PERSON_H
